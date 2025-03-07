@@ -24,7 +24,7 @@ mpsDefaults {
 
 stubs {
     register("stubs") {
-        destinationDir("solutions/com.specificlanguages.dependencies/lib")
+        destinationDir("solutions/com.clario.dependencies/lib")
 
         // These versions are used by MPS 2023.2.2
         dependency("org.apache.commons:commons-lang3:3.12.0")
