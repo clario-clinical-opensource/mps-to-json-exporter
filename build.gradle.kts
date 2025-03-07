@@ -32,9 +32,6 @@ stubs {
     }
 }
 
-group = "com.specificlanguages.mps-json"
-version = "0.1.0"
-
 // Empty jar for fulfilling Maven Central requirements
 val sourcesJar by tasks.registering(Jar::class) {
     archiveClassifier = "sources"
@@ -45,10 +42,17 @@ val javadocJar by tasks.registering(Jar::class) {
     archiveClassifier = "javadoc"
 }
 
+
+val gitTag: String? = System.getenv("GITHUB_REF")?.replace("refs/tags/", "")?.removePrefix("v")
+
 publishing {
     publications {
         register<MavenPublication>("mpsPlugin") {
             from(components["mps"])
+
+            groupId = "com.github.clario-clinical-opensource"
+            artifactId = "mps-to-json-exporter"
+            version = gitTag ?: "0.1.0-SNAPSHOT"
 
             // Put resolved versions of dependencies into POM files
             versionMapping { usage("java-runtime") { fromResolutionOf("generation") } }
@@ -57,30 +61,23 @@ publishing {
             artifact(javadocJar)
 
             pom {
-                val repo = "specificlanguages/mps-to-json-exporter"
-                name = "${project.group}:${project.name}"
-                description = "An MPS library to export MPS models as JSON"
-                url = "https://github.com/$repo"
-
-                scm {
-                    connection = "scm:git:git://github.com/$repo.git"
-                    developerConnection = "scm:git:ssh://github.com:$repo.git"
-                    url = "https://github.com/$repo"
-                }
-
                 licenses {
                     license {
                         name = "The Apache Software License, Version 2.0"
                         url = "http://www.apache.org/licenses/LICENSE-2.0.txt"
                     }
                 }
+            }
+        }
+    }
 
-                developers {
-                    developer {
-                        name = "Sergej Koščejev"
-                        email = "sergej@koscejev.cz"
-                    }
-                }
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/clario-clinical-opensource/mps-to-json-exporter")
+            credentials {
+                username = System.getenv("USERNAME")
+                password = System.getenv("TOKEN")
             }
         }
     }
