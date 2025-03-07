@@ -3,7 +3,7 @@ plugins {
     id("com.specificlanguages.jbr-toolchain") version "1.0.1"
     `maven-publish`
     signing
-    id("com.gradleup.nmcp").version("0.0.8")
+    //id("com.gradleup.nmcp").version("0.0.8")
 }
 
 repositories {
@@ -86,13 +86,4 @@ publishing {
 signing {
     sign(publishing.publications)
     setRequired({ gradle.taskGraph.hasTask("publish") })
-}
-
-nmcp {
-    // nameOfYourPublication must point to an existing publication
-    publish("mpsPlugin") {
-        username = providers.gradleProperty("sonatypeCentralUsername")
-        password = providers.gradleProperty("sonatypeCentralPassword")
-        publicationType = "USER_MANAGED"
-    }
 }
