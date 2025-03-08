@@ -17,6 +17,19 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
       - uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
+      - name: Check Secrets
+        run: |
+          if [[ -z "$GPG_PRIVATE_KEY" ]]; then echo "GPG_PRIVATE_KEY is missing"; exit 1; fi
+          if [[ -z "$GPG_PASSPHRASE" ]]; then echo "GPG_PASSPHRASE is missing"; exit 1; fi
+        env:
+          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+      - name: Debug GPG Key Import
+        run: |
+          echo "$GPG_PRIVATE_KEY" | base64 --decode > private-key.asc
+          gpg --import private-key.asc
+        env:
+          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
       - name: Publish to GitHub packages
         run: ./gradlew publish
         env:
