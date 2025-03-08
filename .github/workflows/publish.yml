@@ -17,11 +17,6 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
       - uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
-      - name: Download Artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: mps-to-json
-          path: build/artifacts
       - name: Publish to GitHub packages
         run: ./gradlew publish
         env:
