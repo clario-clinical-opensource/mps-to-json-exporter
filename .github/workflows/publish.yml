@@ -24,6 +24,8 @@ jobs:
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CENTRAL_USERNAME: ${{ secrets.CENTRAL_USER }}
           CENTRAL_PASSWORD: ${{ secrets.CENTRAL_PWD }}
+          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
 
 
 
