@@ -24,8 +24,7 @@ jobs:
       
       - name: Import GPG Key
         run: |
-          echo "$GPG_PRIVATE_KEY" | base64 --decode > private-key.asc
-          gpg --batch --import private-key.asc
+          echo "$GPG_PRIVATE_KEY" | base64 --decode | gpg --batch --import
         env:
           GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
 
