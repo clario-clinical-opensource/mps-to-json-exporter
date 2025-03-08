@@ -3,7 +3,7 @@ plugins {
     id("com.specificlanguages.jbr-toolchain") version "1.0.1"
     `maven-publish`
     signing
-    //id("com.gradleup.nmcp").version("0.0.8")
+    id("com.gradleup.nmcp").version("0.0.8")
 }
 
 repositories {
@@ -105,7 +105,7 @@ signing {
 }
 
 nmcp {
-    setRequired({ gradle.taskGraph.hasTask("publish") })
+    dependsOn(publish)
     // nameOfYourPublication must point to an existing publication
     publish("mpsPlugin") {
         username = System.getenv("CENTRAL_USERNAME")
