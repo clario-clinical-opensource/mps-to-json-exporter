@@ -105,11 +105,12 @@ signing {
 }
 
 nmcp {
-    dependsOn(publish)
-    // nameOfYourPublication must point to an existing publication
-    publish("mpsPlugin") {
-        username = System.getenv("CENTRAL_USERNAME")
-        password = System.getenv("CENTRAL_PASSWORD")
-        publicationType = "USER_MANAGED"
+    afterEvaluate {
+        // nameOfYourPublication must point to an existing publication
+        publish("mpsPlugin") {
+            username = System.getenv("CENTRAL_USERNAME")
+            password = System.getenv("CENTRAL_PASSWORD")
+            publicationType = "AUTOMATIC"
+        }
     }
 }
