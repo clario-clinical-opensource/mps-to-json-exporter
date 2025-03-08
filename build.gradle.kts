@@ -50,7 +50,7 @@ publishing {
         register<MavenPublication>("mpsPlugin") {
             from(components["mps"])
 
-            groupId = "com.github.clario-clinical-opensource"
+            groupId = "io.github.clario-clinical-opensource"
             artifactId = "mps-to-json-exporter"
             version = gitTag ?: "0.1.0-SNAPSHOT"
 
@@ -61,10 +61,26 @@ publishing {
             artifact(javadocJar)
 
             pom {
+                name = "mps-to-json-exporter"
+                description = "An MPS library to export MPS models as JSON"
+                url = "https://github.com/clario-clinical-opensource/mps-to-json-exporter"
+
+                scm {
+                    connection = "scm:git:git://github.com/clario-clinical-opensource/mps-to-json-exporter.git"
+                    developerConnection = "scm:git:ssh://github.com:clario-clinical-opensource/mps-to-json-exporter.git"
+                    url = "https://github.com/clario-clinical-opensource/mps-to-json-exporter"
+                }
+
                 licenses {
                     license {
                         name = "The Apache Software License, Version 2.0"
                         url = "http://www.apache.org/licenses/LICENSE-2.0.txt"
+                    }
+                }
+                developers {
+                    developer {
+                        name = "Andy Stetson"
+                        email = "stetson.a@gmail.com"
                     }
                 }
             }
@@ -86,4 +102,14 @@ publishing {
 signing {
     sign(publishing.publications)
     setRequired({ gradle.taskGraph.hasTask("publish") })
+}
+
+nmcp {
+    setRequired({ gradle.taskGraph.hasTask("publish") })
+    // nameOfYourPublication must point to an existing publication
+    publish("mpsPlugin") {
+        username = System.getenv("CENTRAL_USERNAME")
+        password = System.getenv("CENTRAL_PASSWORD")
+        publicationType = "USER_MANAGED"
+    }
 }
