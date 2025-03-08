@@ -6,7 +6,6 @@ on:
 
 jobs:
   publish-maven:
-    needs: build
     runs-on: ubuntu-latest
     permissions:
       packages: write
