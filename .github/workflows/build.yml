@@ -21,6 +21,13 @@ jobs:
         
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
+      
+      - name: Import GPG Key
+        run: |
+          echo "$GPG_PRIVATE_KEY" | base64 --decode > private-key.asc
+          gpg --batch --import private-key.asc
+        env:
+          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
 
       - name: Build with Gradle
         run: ./gradlew build -x publish
