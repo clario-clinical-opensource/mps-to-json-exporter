@@ -52,7 +52,7 @@ publishing {
 
             groupId = "io.github.clario-clinical-opensource"
             artifactId = "mps-to-json-exporter"
-            version = gitTag ?: "0.0.1-"
+            version = gitTag ?: "0.0.1"
 
             // Put resolved versions of dependencies into POM files
             versionMapping { usage("java-runtime") { fromResolutionOf("generation") } }
@@ -100,16 +100,19 @@ publishing {
             name = "OSSRH"
             url = uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
             credentials {
-                username = System.getenv("CENTRAL_USERNAME")
-                password = System.getenv("CENTRAL_PASSWORD")
+                username = System.getenv("CENTRAL_USERNAME") ?: error("CENTRAL_USERNAME is not set")
+                password = System.getenv("CENTRAL_PASSWORD") ?: error("CENTRAL_PASSWORD is not set")
             }
         }
     }
 }
 
 signing {
+    useInMemoryPgpKeys(
+        System.getenv("GPG_PRIVATE_KEY"),
+        System.getenv("GPG_PASSPHRASE")
+    )
     sign(publishing.publications)
-    setRequired({ gradle.taskGraph.hasTask("publish") })
 }
 
 // nmcp {
