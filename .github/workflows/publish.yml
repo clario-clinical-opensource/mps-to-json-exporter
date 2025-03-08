@@ -24,12 +24,6 @@ jobs:
         env:
           GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
-      - name: Debug GPG Key Import
-        run: |
-          echo "$GPG_PRIVATE_KEY" | base64 --decode > private-key.asc
-          gpg --import private-key.asc
-        env:
-          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
       - name: Publish to GitHub packages
         run: ./gradlew publish
         env:
