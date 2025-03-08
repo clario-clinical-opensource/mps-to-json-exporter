@@ -100,8 +100,8 @@ publishing {
             name = "OSSRH"
             url = uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
             credentials {
-                username = System.getenv("CENTRAL_USERNAME") ?: error("CENTRAL_USERNAME is not set")
-                password = System.getenv("CENTRAL_PASSWORD") ?: error("CENTRAL_PASSWORD is not set")
+                username = System.getenv("CENTRAL_USERNAME")
+                password = System.getenv("CENTRAL_PASSWORD")
             }
         }
     }
