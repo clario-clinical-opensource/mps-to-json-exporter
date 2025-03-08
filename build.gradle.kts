@@ -3,7 +3,7 @@ plugins {
     id("com.specificlanguages.jbr-toolchain") version "1.0.1"
     `maven-publish`
     signing
-    id("com.gradleup.nmcp").version("0.0.8")
+    // id("com.gradleup.nmcp").version("0.0.8")
 }
 
 repositories {
@@ -52,7 +52,7 @@ publishing {
 
             groupId = "io.github.clario-clinical-opensource"
             artifactId = "mps-to-json-exporter"
-            version = gitTag ?: "0.1.0-SNAPSHOT"
+            version = gitTag ?: "0.0.1-"
 
             // Put resolved versions of dependencies into POM files
             versionMapping { usage("java-runtime") { fromResolutionOf("generation") } }
@@ -96,6 +96,14 @@ publishing {
                 password = System.getenv("TOKEN")
             }
         }
+         maven {
+            name = "OSSRH"
+            url = uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
+            credentials {
+                username = System.getenv("CENTRAL_USERNAME")
+                password = System.getenv("CENTRAL_PASSWORD")
+            }
+        }
     }
 }
 
@@ -104,13 +112,13 @@ signing {
     setRequired({ gradle.taskGraph.hasTask("publish") })
 }
 
-nmcp {
-    afterEvaluate {
-        // nameOfYourPublication must point to an existing publication
-        publish("mpsPlugin") {
-            username = System.getenv("CENTRAL_USERNAME")
-            password = System.getenv("CENTRAL_PASSWORD")
-            publicationType = "AUTOMATIC"
-        }
-    }
-}
+// nmcp {
+//     afterEvaluate {
+//         // nameOfYourPublication must point to an existing publication
+//         publish("mpsPlugin") {
+//             username = System.getenv("CENTRAL_USERNAME")
+//             password = System.getenv("CENTRAL_PASSWORD")
+//             publicationType = "AUTOMATIC"
+//         }
+//     }
+// }
