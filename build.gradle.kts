@@ -117,16 +117,20 @@ signing {
 }
 
 jreleaser {
+    signing {
+        active.set(Active.ALWAYS)
+        armored.set(true)
+    }
     deploy {
         maven {
             nexus2 {
                 register("maven-central") {
-                    active = "ALWAYS"
-                    url = "https://s01.oss.sonatype.org/service/local"
-                    snapshotUrl = "https://s01.oss.sonatype.org/content/repositories/snapshots/"
-                    closeRepository = true
-                    releaseRepository = true
-                    stagingRepository("build/staging-deploy")
+                    active.set(Active.ALWAYS)
+                    url.set("https://s01.oss.sonatype.org/service/local")
+                    snapshotUrl.set("https://s01.oss.sonatype.org/content/repositories/snapshots/")
+                    closeRepository.set(true)
+                    releaseRepository.set(true)
+                    stagingRepository.set("build/staging-deploy")
                 }
             }
         }
