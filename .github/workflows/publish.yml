@@ -17,8 +17,8 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
       - uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
-      - name: Publish to GitHub packages
-        run: ./gradlew publish --stacktrace --info
+      - name: Publish to GitHub packages and Maven Central
+        run: ./gradlew jreleaserFullRelease
         env:
           USERNAME: ${{ secrets.GITHUB_ACTOR }}
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
