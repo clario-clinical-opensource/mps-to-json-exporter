@@ -108,6 +108,10 @@ publishing {
 }
 
 signing {
+    val privateKey = System.getenv("GPG_PRIVATE_KEY")?.trim()
+    val passphrase = System.getenv("GPG_PASSPHRASE")?.trim()
+
+    useInMemoryPgpKeys(privateKey, passphrase)
     sign(publishing.publications)
 }
 

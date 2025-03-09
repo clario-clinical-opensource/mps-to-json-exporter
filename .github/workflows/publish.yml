@@ -23,7 +23,7 @@ jobs:
         env:
           GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
       - name: Publish to GitHub packages
-        run: ./gradlew publish
+        run: ./gradlew publish --stacktrace --info
         env:
           USERNAME: ${{ secrets.GITHUB_ACTOR }}
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
