@@ -3,9 +3,9 @@ plugins {
     id("com.specificlanguages.jbr-toolchain") version "1.0.1"
     `maven-publish`
     signing
-    id ("org.danilopianini.publish-on-central") version "8.0.4"
+    // id ("org.danilopianini.publish-on-central") version "8.0.4"
     // id("org.jreleaser") version "1.17.0"
-    // id("com.gradleup.nmcp").version("0.0.8")
+    id("com.gradleup.nmcp").version("0.0.9")
 }
 
 repositories {
@@ -47,11 +47,11 @@ val javadocJar by tasks.registering(Jar::class) {
 
 val gitTag: String? = System.getenv("GITHUB_REF")?.replace("refs/tags/", "")?.removePrefix("v")
 
-group = "io.github.clario-clinical-opensource" // This must be configured for the generated pom.xml to work correctly
-publishOnCentral {
-  repoOwner.set("clario-clinical-opensource")
-  projectDescription.set("An MPS library to export MPS models as JSON")
-}
+// group = "io.github.clario-clinical-opensource" // This must be configured for the generated pom.xml to work correctly
+// publishOnCentral {
+//   repoOwner.set("clario-clinical-opensource")
+//   projectDescription.set("An MPS library to export MPS models as JSON")
+// }
 
 publishing {
     publications {
@@ -144,13 +144,11 @@ signing {
 //     }
 // }
 
-// nmcp {
-//     afterEvaluate {
-//         // nameOfYourPublication must point to an existing publication
-//         publish("mpsPlugin") {
-//             username = System.getenv("CENTRAL_USERNAME")
-//             password = System.getenv("CENTRAL_PASSWORD")
-//             publicationType = "AUTOMATIC"
-//         }
-//     }
-// }
+nmcp {
+    // nameOfYourPublication must point to an existing publication
+    publish("mpsPlugin") {
+        username = System.getenv("MAVEN_CENTRAL_PORTAL_USERNAME")
+        password = System.getenv("MAVEN_CENTRAL_PORTAL_PASSWORD")
+        publicationType = "USER_MANAGED"
+    }
+}
