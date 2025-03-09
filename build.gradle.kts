@@ -3,8 +3,6 @@ plugins {
     id("com.specificlanguages.jbr-toolchain") version "1.0.1"
     `maven-publish`
     signing
-    // id ("org.danilopianini.publish-on-central") version "8.0.4"
-    // id("org.jreleaser") version "1.17.0"
     id("com.gradleup.nmcp").version("0.0.9")
 }
 
@@ -47,11 +45,6 @@ val javadocJar by tasks.registering(Jar::class) {
 
 val gitTag: String? = System.getenv("GITHUB_REF")?.replace("refs/tags/", "")?.removePrefix("v")
 
-// group = "io.github.clario-clinical-opensource" // This must be configured for the generated pom.xml to work correctly
-// publishOnCentral {
-//   repoOwner.set("clario-clinical-opensource")
-//   projectDescription.set("An MPS library to export MPS models as JSON")
-// }
 
 publishing {
     publications {
@@ -104,14 +97,6 @@ publishing {
                 password = System.getenv("TOKEN")
             }
         }
-        // maven {
-        //     name = "maven-central"
-        //     url = uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
-        //     credentials {
-        //         username = System.getenv("CENTRAL_USERNAME")
-        //         password = System.getenv("CENTRAL_PASSWORD")
-        //     }
-        // }
     }
 }
 
@@ -123,26 +108,6 @@ signing {
     sign(publishing.publications)
 }
 
-// jreleaser {
-//     signing {
-//         active.set(org.jreleaser.model.Active.ALWAYS)
-//         armored.set(true)
-//     }
-//     deploy {
-//         maven {
-//             nexus2 {
-//                 register("maven-central") {
-//                     active.set(org.jreleaser.model.Active.ALWAYS)
-//                     url.set("https://s01.oss.sonatype.org/service/local")
-//                     snapshotUrl.set("https://s01.oss.sonatype.org/content/repositories/snapshots/")
-//                     closeRepository.set(true)
-//                     releaseRepository.set(true)
-//                     stagingRepository("build/staging-deploy")
-//                 }
-//             }
-//         }
-//     }
-// }
 
 nmcp {
     // nameOfYourPublication must point to an existing publication

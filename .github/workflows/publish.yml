@@ -26,6 +26,3 @@ jobs:
           MAVEN_CENTRAL_PORTAL_PASSWORD: ${{ secrets.CENTRAL_PWD }}
           GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
-
-
-
