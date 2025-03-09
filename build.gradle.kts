@@ -45,6 +45,8 @@ val javadocJar by tasks.registering(Jar::class) {
 
 val gitTag: String? = System.getenv("GITHUB_REF")?.replace("refs/tags/", "")?.removePrefix("v")
 
+version = gitTag ?: "0.0.1-SNAPSHOT"
+
 
 publishing {
     publications {
