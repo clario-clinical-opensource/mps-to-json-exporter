@@ -3,6 +3,7 @@ plugins {
     id("com.specificlanguages.jbr-toolchain") version "1.0.1"
     `maven-publish`
     signing
+    id("org.jreleaser") version "1.17.0"
     // id("com.gradleup.nmcp").version("0.0.8")
 }
 
@@ -96,14 +97,14 @@ publishing {
                 password = System.getenv("TOKEN")
             }
         }
-        maven {
-            name = "OSSRH"
-            url = uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
-            credentials {
-                username = System.getenv("CENTRAL_USERNAME")
-                password = System.getenv("CENTRAL_PASSWORD")
-            }
-        }
+        // maven {
+        //     name = "maven-central"
+        //     url = uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
+        //     credentials {
+        //         username = System.getenv("CENTRAL_USERNAME")
+        //         password = System.getenv("CENTRAL_PASSWORD")
+        //     }
+        // }
     }
 }
 
@@ -113,6 +114,23 @@ signing {
 
     useInMemoryPgpKeys(privateKey, passphrase)
     sign(publishing.publications)
+}
+
+jreleaser {
+    deploy {
+        maven {
+            nexus2 {
+                'maven-central' {
+                    active = 'ALWAYS'
+                    url = 'https://s01.oss.sonatype.org/service/local'
+                    snapshotUrl = 'https://s01.oss.sonatype.org/content/repositories/snapshots/'
+                    closeRepository = true
+                    releaseRepository = true
+                    stagingRepository('build/staging-deploy')
+                }
+            }
+        }
+    }
 }
 
 // nmcp {
