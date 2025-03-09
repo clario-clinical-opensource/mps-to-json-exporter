@@ -121,12 +121,12 @@ jreleaser {
         maven {
             nexus2 {
                 register("maven-central") {
-                    active.set("ALWAYS")
-                    url.set("https://s01.oss.sonatype.org/service/local")
-                    snapshotUrl.set("https://s01.oss.sonatype.org/content/repositories/snapshots/")
-                    closeRepository.set(true)
-                    releaseRepository.set(true)
-                    stagingRepository.set("build/staging-deploy")
+                    active = "ALWAYS"
+                    url = "https://s01.oss.sonatype.org/service/local"
+                    snapshotUrl = "https://s01.oss.sonatype.org/content/repositories/snapshots/"
+                    closeRepository = true
+                    releaseRepository = true
+                    stagingRepository("build/staging-deploy")
                 }
             }
         }
