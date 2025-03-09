@@ -18,12 +18,12 @@ jobs:
           distribution: 'temurin'
       - uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
       - name: Publish to GitHub packages and Maven Central
-        run: ./gradlew jreleaserFullRelease
+        run: ./gradlew publish
         env:
           USERNAME: ${{ secrets.GITHUB_ACTOR }}
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          JRELEASER_MAVENCENTRAL_USERNAME: ${{ secrets.CENTRAL_USER }}
-          JRELEASER_MAVENCENTRAL_PASSWORD: ${{ secrets.CENTRAL_PWD }}
+          MAVEN_CENTRAL_PORTAL_USERNAME: ${{ secrets.CENTRAL_USER }}
+          MAVEN_CENTRAL_PORTAL_PASSWORD: ${{ secrets.CENTRAL_PWD }}
           GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
 
