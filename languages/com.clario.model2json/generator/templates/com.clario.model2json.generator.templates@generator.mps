@@ -1272,7 +1272,7 @@
   </node>
   <node concept="13MO4I" id="4dEmNpKSwXM">
     <property role="TrG5h" value="ToJson" />
-    <ref role="3gUMe" to="tpck:h0TrEE$" resolve="INamedConcept" />
+    <ref role="3gUMe" to="tpck:gw2VY9q" resolve="BaseConcept" />
     <node concept="1N15co" id="4dEmNpKTvpV" role="1s_3oS">
       <property role="TrG5h" value="model2json" />
       <node concept="3Tqbb2" id="4dEmNpKTvy_" role="1N15GL">
@@ -2229,13 +2229,7 @@
           <node concept="3NFfHV" id="43VFH6y4kJ" role="5jGum">
             <node concept="3clFbS" id="43VFH6y4kK" role="2VODD2">
               <node concept="3clFbF" id="43VFH6y4kL" role="3cqZAp">
-                <node concept="1PxgMI" id="7l0piCSgPWF" role="3clFbG">
-                  <property role="1BlNFB" value="true" />
-                  <node concept="chp4Y" id="7l0piCSgQ1T" role="3oSUPX">
-                    <ref role="cht4Q" to="tpck:h0TrEE$" resolve="INamedConcept" />
-                  </node>
-                  <node concept="30H73N" id="43VFH6y4kN" role="1m5AlR" />
-                </node>
+                <node concept="30H73N" id="43VFH6y4kN" role="3clFbG" />
               </node>
             </node>
           </node>
