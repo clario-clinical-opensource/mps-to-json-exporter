@@ -15,7 +15,7 @@
   </component>
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.specificlanguages.mps-json.mps-to-json-exporter.iml" filepath="$PROJECT_DIR$/.idea/modules/com.specificlanguages.mps-json.mps-to-json-exporter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/mps-to-json-clario.mps-to-json-exporter.iml" filepath="$PROJECT_DIR$/.idea/modules/mps-to-json-clario.mps-to-json-exporter.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/mps-to-json-exporter.iml" filepath="$PROJECT_DIR$/.idea/modules/mps-to-json-exporter.iml" />
     </modules>
   </component>
