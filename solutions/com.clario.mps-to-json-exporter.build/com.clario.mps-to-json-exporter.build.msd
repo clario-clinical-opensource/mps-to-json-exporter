@@ -24,8 +24,6 @@
     <module reference="6354ebe7-c22a-4a0f-ac54-50b52ab9b065(JDK)" version="0" />
     <module reference="de7b3dd2-00f3-408b-b4a5-72c5facff2d9(com.clario.dependencies)" version="0" />
     <module reference="1f1b1ad4-6184-4b2f-8ba2-7af5cf62dbdd(com.clario.mps-to-json-exporter.build)" version="0" />
-    <module reference="39983771-4e9b-401b-a1a9-1da6c777c843(com.fasterxml.jackson)" version="0" />
-    <module reference="822a7acd-f487-45f5-bbb9-1ce595a1705f(com.mbeddr.mpsutil.ecore.stubs)" version="0" />
     <module reference="84f0ad52-c7ca-45dd-99c5-9605c96bf808(com.specificlanguages.json.build)" version="0" />
     <module reference="422c2909-59d6-41a9-b318-40e6256b250f(jetbrains.mps.ide.build)" version="0" />
   </dependencyVersions>

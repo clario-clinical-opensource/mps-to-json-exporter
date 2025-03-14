@@ -68,7 +68,6 @@
         <module reference="37ca9e63-a2a3-4038-b64b-816e865c36b1(com.clario.metamodel2jsonschema)" version="0" />
         <module reference="fd9084c0-89ce-4d57-b6c2-e390df147a2c(com.clario.metamodel2jsonschema.generator)" version="0" />
         <module reference="c72bb5ed-7d2b-4e68-8d06-5f02045d0bcc(com.clario.model2json)" version="1" />
-        <module reference="39983771-4e9b-401b-a1a9-1da6c777c843(com.fasterxml.jackson)" version="0" />
         <module reference="f3061a53-9226-4cc5-a443-f952ceaf5816(jetbrains.mps.baseLanguage)" version="0" />
         <module reference="fd392034-7849-419d-9071-12563d152375(jetbrains.mps.baseLanguage.closures)" version="0" />
         <module reference="83888646-71ce-4f1c-9c53-c54016f6ad4f(jetbrains.mps.baseLanguage.collections)" version="0" />
