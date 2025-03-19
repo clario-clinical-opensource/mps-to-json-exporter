@@ -34,9 +34,9 @@
     <property role="TrG5h" value="Model2JsonPlan" />
     <node concept="2VgMA2" id="2qhlwWB3thZ" role="2VgMA7">
       <node concept="2Qf6Nf" id="3gIe8ZWPU$1" role="2Qf7GQ">
-        <node concept="2V$Bhx" id="2NO1SZtntVu" role="2Qf6Ng">
+        <node concept="2V$Bhx" id="6_c2lbyWMGT" role="2Qf6Ng">
           <property role="2V$B1T" value="c72bb5ed-7d2b-4e68-8d06-5f02045d0bcc" />
-          <property role="2V$B1Q" value="com.specificlanguages.model2json" />
+          <property role="2V$B1Q" value="com.clario.model2json" />
         </node>
       </node>
     </node>
@@ -45,9 +45,9 @@
     <property role="TrG5h" value="Metamodel2Java" />
     <node concept="2VgMA2" id="2qhlwWB1l8a" role="2VgMA7">
       <node concept="2Qf6Nf" id="3gIe8ZWPU$2" role="2Qf7GQ">
-        <node concept="2V$Bhx" id="73cjAFgjm7p" role="2Qf6Ng">
+        <node concept="2V$Bhx" id="6_c2lbyWMGU" role="2Qf6Ng">
           <property role="2V$B1T" value="f81274ef-51e9-4fbc-9bcc-505d21a35248" />
-          <property role="2V$B1Q" value="com.specificlanguages.metamodel2java" />
+          <property role="2V$B1Q" value="com.clario.metamodel2java" />
         </node>
       </node>
     </node>
@@ -70,9 +70,9 @@
     <property role="TrG5h" value="Metamodel2JsonSchema" />
     <node concept="2VgMA2" id="3DosGw5d9k4" role="2VgMA7">
       <node concept="2Qf6Nf" id="3gIe8ZWPU$5" role="2Qf7GQ">
-        <node concept="2V$Bhx" id="3DosGw5d9k9" role="2Qf6Ng">
+        <node concept="2V$Bhx" id="6_c2lbyWMGV" role="2Qf6Ng">
           <property role="2V$B1T" value="37ca9e63-a2a3-4038-b64b-816e865c36b1" />
-          <property role="2V$B1Q" value="com.specificlanguages.metamodel2jsonschema" />
+          <property role="2V$B1Q" value="com.clario.metamodel2jsonschema" />
         </node>
       </node>
     </node>

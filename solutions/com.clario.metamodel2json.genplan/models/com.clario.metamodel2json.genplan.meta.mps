@@ -43,9 +43,9 @@
     </node>
     <node concept="2VgMA2" id="3DosGw5dVrw" role="2VgMA7">
       <node concept="2Qf6Nf" id="3gIe8ZWPU$0" role="2Qf7GQ">
-        <node concept="2V$Bhx" id="3DosGw5dVrx" role="2Qf6Ng">
+        <node concept="2V$Bhx" id="6_c2lbyWNIj" role="2Qf6Ng">
           <property role="2V$B1T" value="37ca9e63-a2a3-4038-b64b-816e865c36b1" />
-          <property role="2V$B1Q" value="com.specificlanguages.metamodel2jsonschema" />
+          <property role="2V$B1Q" value="com.clario.metamodel2jsonschema" />
         </node>
       </node>
     </node>

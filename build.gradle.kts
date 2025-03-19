@@ -45,7 +45,7 @@ val javadocJar by tasks.registering(Jar::class) {
 
 val gitTag: String? = System.getenv("GITHUB_REF")?.replace("refs/tags/", "")?.removePrefix("v")
 
-version = gitTag ?: "0.0.1-SNAPSHOT"
+version = gitTag ?: "0.0.5-SNAPSHOT"
 
 
 publishing {
@@ -55,7 +55,7 @@ publishing {
 
             groupId = "io.github.clario-clinical-opensource"
             artifactId = "mps-to-json-exporter"
-            version = gitTag ?: "0.0.1"
+            version = gitTag ?: "0.0.5"
 
             // Put resolved versions of dependencies into POM files
             versionMapping { usage("java-runtime") { fromResolutionOf("generation") } }
